@@ -10,8 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- SEO meta tag -->
     <meta name="description" content="Prince Stephen Lacsa - Web Developer, UI/UX Designer and Artist. Interactive resume showcasing skills, projects and experience.">
+    <!-- Theme color for browser -->
+    <meta name="theme-color" content="#49111C">
 </head>
 <body>
+    <!-- Removed Theme Switcher -->
+
     <!-- Navigation Bar -->
     <nav class="navbar" aria-label="Main navigation">
         <div class="container">
@@ -34,18 +38,26 @@
     <!-- Header/Hero Section -->
     <header>
         <div class="container">
-            <img src="assets/images/pfp.jpg" alt="Prince Stephen Lacsa" class="profile-image">
-            <h1>Prince Stephen Lacsa</h1>
-            <p class="tagline">Web Developer | UI/UX Designer | Artist</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/PrincePipen" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/H1ro_desu" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+            <div class="hero-content">
+                <img src="assets/images/pfp.jpg" alt="Prince Stephen Lacsa" class="profile-image">
+                <h1>Prince Stephen Lacsa</h1>
+                <p class="tagline">Web Developer | UI/UX Designer | Artist</p>
+                <div class="typing-container">
+                    <span id="typed-text"></span><span class="cursor">&nbsp;</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/PrincePipen" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/H1ro_desu" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="cta-container">
+                    <a href="#about" class="btn primary-btn">Discover More</a>
+                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                </div>
             </div>
-            <div class="cta-container">
-                <a href="#about" class="btn primary-btn">Discover More</a>
-                <a href="#contact" class="btn secondary-btn">Contact Me</a>
-            </div>
+        </div>
+        <div class="mouse-scroll-indicator">
+            <div class="mouse"></div>
         </div>
     </header>
     
@@ -76,18 +88,30 @@
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fab fa-html5"></i></div>
                             <div class="skill-name">HTML5</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="95"></div>
+                            </div>
                         </div>
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
                             <div class="skill-name">CSS3</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="90"></div>
+                            </div>
                         </div>
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fab fa-js"></i></div>
                             <div class="skill-name">JavaScript</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="85"></div>
+                            </div>
                         </div>
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fab fa-react"></i></div>
                             <div class="skill-name">React</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="80"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,14 +122,23 @@
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fab fa-node-js"></i></div>
                             <div class="skill-name">Node.js</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="75"></div>
+                            </div>
                         </div>
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fab fa-php"></i></div>
                             <div class="skill-name">PHP</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="70"></div>
+                            </div>
                         </div>
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fas fa-database"></i></div>
                             <div class="skill-name">MySQL</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="65"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,10 +149,16 @@
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fab fa-figma"></i></div>
                             <div class="skill-name">Figma</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="85"></div>
+                            </div>
                         </div>
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
                             <div class="skill-name">Git</div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="80"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -163,7 +202,7 @@
                         <img src="assets/images/proj1.jpg" alt="AI Chatbot Project screenshot">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="https://graceful-brigadeiros-f47674.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn outline-btn">View Demo</a>
+                                <a href="https://ai-chatbot-project-blue.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn outline-btn">View Demo</a>
                                 <a href="https://github.com/PrincePipen/AI-Chatbot-Project" target="_blank" rel="noopener noreferrer" class="btn outline-btn">Source Code</a>
                             </div>
                         </div>
@@ -273,7 +312,11 @@
         </div>
     </footer>
     
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    
     <!-- JavaScript -->
     <script src="scripts/script.js"></script>
+    <script src="scripts/typed.min.js"></script>
 </body>
 </html>
