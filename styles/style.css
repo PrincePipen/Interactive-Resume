@@ -474,6 +474,37 @@ header h1 {
     line-height: 1.8;
 }
 
+/* Education & Languages Sections */
+.education-info, .languages-info {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(10, 9, 8, 0.1);
+    text-align: left;
+}
+
+.education-info h3, .languages-info h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.education-info h3::after, .languages-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.education-info p, .languages-info p {
+    line-height: 1.6;
+}
+
 /* ======================================================================
    SKILLS SECTION
    ====================================================================== */
@@ -826,6 +857,50 @@ header h1 {
     background: var(--accent-color);
     color: var(--dark-color);
     transform: translateY(-3px);
+}
+
+/* Project date style */
+.project-date {
+    font-style: italic;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+/* Mobile tap indicator styles */
+.mobile-tap-indicator {
+    display: none; /* Hidden by default */
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 15px;
+    text-align: center;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-tap-indicator i {
+    margin-right: 5px;
+}
+
+/* Show tap indicator only on mobile */
+@media screen and (max-width: 768px) {
+    .mobile-tap-indicator {
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    /* When project card is tapped/active */
+    .project-card.tapped .mobile-tap-indicator {
+        background: var(--success-color);
+    }
+    
+    .project-card.tapped .mobile-tap-indicator span {
+        content: "Project details shown";
+    }
 }
 
 /* ======================================================================
@@ -1326,6 +1401,15 @@ footer .social-links a {
     
     .event::before {
         left: 10px; /* Adjust the position of the date badge */
+    }
+
+    .education-info, .languages-info {
+        text-align: center;
+    }
+    
+    .education-info h3::after, .languages-info h3::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
