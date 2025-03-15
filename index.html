@@ -1,1 +1,242 @@
-index
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume</title>
+    <!-- Stylesheet links -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SEO meta tag -->
+    <meta name="description" content="Prince Stephen Lacsa - Web Developer, UI/UX Designer and Artist. Interactive resume showcasing skills, projects and experience.">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container">
+            <div class="logo">Interactive Resume</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger" aria-label="Toggle menu" role="button" tabindex="0">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Header/Hero Section -->
+    <header>
+        <div class="container">
+            <img src="assets/images/pfp.jpg" alt="Prince Stephen Lacsa" class="profile-image">
+            <h1>Prince Stephen Lacsa</h1>
+            <p class="tagline">Web Developer | UI/UX Designer | Artist</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/PrincePipen" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/H1ro_desu" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+            </div>
+            <a href="#about" class="btn">Discover More</a>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content fade-in">
+                <p>Hi, I'm Prince Stephen Lacsa, a passionate front-end developer and UI/UX designer with experience in building responsive and user-friendly websites. I specialize in crafting visually appealing and intuitive interfaces that enhance user experiences.</p>
+                <p>With a strong foundation in HTML, CSS, JavaScript, and frameworks like React, I bring designs to life with clean, efficient, and interactive code. My expertise in UI/UX design allows me to create seamless, accessible, and engaging digital experiences.</p>
+                <p>I'm always eager to learn new design trends and technologies to continuously improve my craft and deliver high-quality web solutions.</p>
+                <div class="about-cta">
+                    <a href="#contact" class="btn">Get In Touch</a>
+                    <a href="#projects" class="btn" style="background: var(--secondary-color)">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skill-bar">
+                <div class="skill-name">HTML</div>
+                <div class="skill-level" data-level="90%">90%</div>
+            </div>
+            <!-- More skill bars -->
+            <div class="skill-bar">
+                <div class="skill-name">CSS</div>
+                <div class="skill-level" data-level="90%">90%</div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-level" data-level="85%">85%</div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">React</div>
+                <div class="skill-level" data-level="80%">80%</div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">Node.js</div>
+                <div class="skill-level" data-level="75%">75%</div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">PHP</div>
+                <div class="skill-level" data-level="85%">85%</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <!-- Experience items -->
+                <div class="event fade-in">
+                    <h3>Junior Web Developer</h3>
+                    <p class="event-meta">Lyceum of the Philippines, Cavite | Sept 2022 - Present</p>
+                    <p>Designed and developed web applications as part of university projects and personal side projects, utilizing modern JavaScript frameworks and responsive design principles. Focused on creating intuitive user interfaces and optimizing performance. Worked closely with peers to refine project workflows, implement best coding practices, and enhance overall user experience</p>
+                </div>
+                <div class="event fade-in">
+                    <h3>Frontend Developer & UI/UX Designer</h3>
+                    <p class="event-meta">Lyceum of the Philippines, Cavite | Sept 2022 - Present</p>
+                    <p>Designed and developed responsive web applications using HTML, CSS, and JavaScript, ensuring seamless functionality across various devices. Collaborated with programmers and team members to implement user-friendly interfaces that align with modern design principles. Focused on accessibility, usability, and creating intuitive digital experiences that enhance user engagement.</p>
+                </div>
+                <div class="event fade-in">
+                    <h3>Web Designer (University & Personal Projects)</h3>
+                    <p class="event-meta">Lyceum of the Philippines, Cavite | Sept 2022 - Present</p>
+                    <p>Designed website mockups and transformed them into functional web pages using modern front-end technologies. Gained experience in UI/UX principles, responsive design, and collaborating with programmers to create visually appealing and user-friendly websites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <!-- Project cards -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/proj1.jpg" alt="AI Chatbot Project screenshot">
+                    </div>
+                    <div class="project-info">
+                        <h3>AI Chatbot Project</h3>
+                        <p>A web-based interactive AI chatbot designed to simulate a conversation with an AI companion aboard a spaceship. The project utilizes HTML, CSS, and JavaScript, integrating the Google Generative AI API to provide intelligent and context-aware responses. The user interface features a space-themed environment with animations and an interactive menu</p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://graceful-brigadeiros-f47674.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-small">Live Demo</a>
+                            <a href="https://github.com/PrincePipen/AI-Chatbot-Project" target="_blank" rel="noopener noreferrer" class="btn-small">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/proj2.jpg" alt="DnD Project screenshot">
+                    </div>
+                    <div class="project-info">
+                        <h3>DnD Project (in-progress)</h3>
+                        <p>An immersive web-based Dungeons & Dragons experience powered by AI. This application combines the classic tabletop RPG experience with modern AI technology to create dynamic, personalized adventures</p>
+                        <div class="project-tags">
+                            <span>TypeScript</span>
+                            <span>JavaScript</span>
+                            <span>Tailwind CSS</span>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" aria-label="Live demo not available yet" class="btn-small">Live Demo (no live demo yet)</a>
+                            <a href="https://github.com/PrincePipen/DnD-Project-.-in-progress" target="_blank" rel="noopener noreferrer" class="btn-small">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>xxxxxxxxxx, xxxxxxxxxx</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>princepipen@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>xxxxxxxxxx</p>
+                    </div>
+                </div>
+                <form id="contact-form" aria-label="Contact form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+                        <span class="error-message"></span>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer with Code of Ethics -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Prince Pipen. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/PrincePipen" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/H1ro_desu" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <!-- Code of Ethics Section -->
+            <div class="code-of-ethics">
+                <details>
+                    <summary>Code of Ethics & Professional Conduct</summary>
+                    <div class="ethics-content">
+                        <p>As a web developer and designer, I adhere to the following principles:</p>
+                        <ul>
+                            <li><strong>Integrity:</strong> I create honest, transparent solutions and am forthright about my capabilities and limitations.</li>
+                            <li><strong>Privacy & Data Protection:</strong> I respect user privacy and handle data with care, following best security practices.</li>
+                            <li><strong>Accessibility:</strong> I strive to make all digital solutions accessible to people of all abilities.</li>
+                            <li><strong>Quality:</strong> I am committed to high-quality work and continuous learning to improve my craft.</li>
+                            <li><strong>Attribution:</strong> I give proper credit for others' work and respect intellectual property rights.</li>
+                            <li><strong>Environmental Responsibility:</strong> I develop solutions with minimal environmental impact and optimal performance.</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="scripts/script.js"></script>
+</body>
+</html>
