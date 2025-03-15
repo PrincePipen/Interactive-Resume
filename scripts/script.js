@@ -85,7 +85,7 @@ const smoothScroll = () => {
 };
 
 /**
- * Enhanced sticky navigation with color transition
+ * Simplified sticky navigation
  * Changes the navbar background color and shadow on scroll
  */
 const stickyNav = () => {
@@ -319,6 +319,121 @@ const projectOverlayEffect = () => {
     });
 };
 
+/**
+ * Initialize progress bars for skills
+ * Animates the skill progress bars when they come into view
+ */
+const initSkillProgressBars = () => {
+    const progressBars = document.querySelectorAll('.skill-progress-bar');
+    
+    const animateProgressBar = (bar) => {
+        const progress = bar.getAttribute('data-progress');
+        bar.style.width = `${progress}%`;
+        // Use default gradient, removed theme-based gradient
+    };
+    
+    const checkProgress = () => {
+        progressBars.forEach(bar => {
+            const position = bar.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+            
+            if (position < screenHeight * 0.9 && !bar.classList.contains('animated')) {
+                bar.classList.add('animated');
+                setTimeout(() => {
+                    animateProgressBar(bar);
+                }, 200);
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', checkProgress);
+    checkProgress(); // Check on page load
+};
+
+/**
+ * Initialize typing animation
+ * Creates a typewriter effect for the header text
+ */
+const initTypingAnimation = () => {
+    const typedTextElement = document.getElementById('typed-text');
+    
+    if (!typedTextElement || typeof Typed !== 'function') return;
+    
+    new Typed('#typed-text', {
+        strings: [
+            "Building creative web experiences",
+            "Crafting intuitive user interfaces",
+            "Turning ideas into digital reality",
+            "Solving problems with clean code"
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true
+    });
+};
+
+/**
+ * Initialize back to top button
+ * Shows/hides the back to top button and scrolls to top when clicked
+ */
+const initBackToTop = () => {
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    if (!backToTopBtn) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+};
+
+/**
+ * Initialize scroll indicator
+ * Animates the mouse scroll indicator in the header
+ */
+const initScrollIndicator = () => {
+    const scrollIndicator = document.querySelector('.mouse-scroll-indicator');
+    
+    if (!scrollIndicator) return;
+    
+    scrollIndicator.addEventListener('click', () => {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+};
+
+/**
+ * Add parallax effect to header elements
+ * Creates a depth effect when scrolling
+ */
+const initHeaderParallax = () => {
+    const header = document.querySelector('header');
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (!header || !heroContent) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        if (scrollY < window.innerHeight) {
+            heroContent.style.transform = `translateY(${scrollY * 0.4}px)`;
+            heroContent.style.opacity = 1 - (scrollY / (window.innerHeight * 0.6));
+        }
+    });
+};
+
 // ==========================================================================
 // FORM VALIDATION
 // ==========================================================================
@@ -446,9 +561,9 @@ function isValidEmail(email) {
  * Initialize all functions when the DOM is fully loaded
  */
 function init() {
+    // Existing functions
     navSlide();
     smoothScroll();
-    // Replace animateSkillBars with animateSkillCards
     animateSkillCards();
     fadeInElements();
     validateForm();
@@ -456,8 +571,16 @@ function init() {
     parallaxEffect();
     animateNumbers();
     projectHoverEffects();
-    skillCardEffects(); // Add this new function
-    projectOverlayEffect(); // Add this new function
+    skillCardEffects();
+    projectOverlayEffect();
+    
+    // New functions
+    initSkillProgressBars();
+    initTypingAnimation();
+    initBackToTop();
+    initScrollIndicator();
+    initHeaderParallax();
+    
     console.log('Interactive Resume initialized');
 }
 
