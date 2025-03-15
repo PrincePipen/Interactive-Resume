@@ -576,7 +576,6 @@ function init() {
     
     // New functions
     initSkillProgressBars();
-    initTypingAnimation();
     initBackToTop();
     initScrollIndicator();
     initHeaderParallax();
