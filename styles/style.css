@@ -22,6 +22,12 @@
     --success-color: #3C6E71; /* Teal - complementary to palette */
     --danger-color: #9B2226; /* Bright red - for errors */
     
+    /* New softer background colors */
+    --bg-color: #EAE7DC; /* Soft beige background */
+    --card-bg: #F5F2EA; /* Slightly lighter beige for cards */
+    --section-bg: #E6E2D6; /* Slightly darker beige for sections */
+    --input-bg: #F0EDE6; /* Soft background for inputs */
+    
     /* Effects and utilities */
     --box-shadow: 0 10px 20px rgba(10, 9, 8, 0.08);
     --text-shadow: 0 2px 4px rgba(10, 9, 8, 0.08);
@@ -44,7 +50,7 @@ body {
     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.7;
     color: var(--dark-color);
-    background-color: var(--light-color);
+    background-color: var(--bg-color); /* Updated to soft beige */
     scroll-behavior: smooth;
 }
 
@@ -171,7 +177,7 @@ section {
 
 /* Section background alternating pattern */
 section:nth-child(even) {
-    background: linear-gradient(135deg, #f2f4f3 0%, #e6e8e7 100%);
+    background: linear-gradient(135deg, var(--section-bg) 0%, #dfdad0 100%);
 }
 
 /* ======================================================================
@@ -433,7 +439,7 @@ header h1 {
    ====================================================================== */
 
 #about {
-    background: linear-gradient(135deg, var(--light-color) 0%, rgba(242, 244, 243, 0.8) 100%);
+    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(234, 231, 220, 0.8) 100%);
     position: relative;
     z-index: 1;
 }
@@ -456,7 +462,7 @@ header h1 {
     margin: 0 auto;
     text-align: center;
     font-size: 1.15rem;
-    background: white;
+    background: var(--card-bg);
     padding: 40px;
     border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
@@ -510,7 +516,7 @@ header h1 {
 }
 
 .skill-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: var(--border-radius);
     padding: 25px 15px;
     box-shadow: var(--card-shadow);
@@ -607,7 +613,7 @@ header h1 {
 
 .event {
     position: relative;
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: var(--border-radius);
     padding: 25px;
     margin: 50px 0;
@@ -689,7 +695,7 @@ header h1 {
    ====================================================================== */
 
 #projects {
-    background: linear-gradient(135deg, var(--light-color) 0%, rgba(242, 244, 243, 0.8) 100%);
+    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(234, 231, 220, 0.8) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -717,7 +723,7 @@ header h1 {
 }
 
 .project-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--card-shadow);
@@ -828,7 +834,7 @@ header h1 {
 
 #contact {
     padding: 100px 0;
-    background: linear-gradient(135deg, var(--light-color) 0%, rgba(242, 244, 243, 0.8) 100%);
+    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(234, 231, 220, 0.8) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -853,7 +859,7 @@ header h1 {
     gap: 0;
     max-width: 1100px;
     margin: 0 auto;
-    background: white;
+    background: var(--card-bg);
     border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
     overflow: hidden;
@@ -953,7 +959,7 @@ input, textarea {
     border-radius: var(--border-radius);
     font-size: 16px;
     transition: all 0.3s ease;
-    background: #f8f9fa;
+    background: var(--input-bg);
     color: var(--dark-color);
 }
 
@@ -965,7 +971,7 @@ input:focus, textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(73, 17, 28, 0.2);
-    background: white;
+    background: var(--card-bg);
 }
 
 textarea {
