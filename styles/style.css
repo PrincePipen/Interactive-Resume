@@ -1192,28 +1192,52 @@ footer .social-links a {
     
     /* Timeline becomes single-column on smaller screens */
     .timeline::after {
-        left: 31px;
+        display: none; /* Hide the center line on mobile */
     }
     
     .event {
         width: 100%;
-        padding-left: 70px;
+        padding-left: 25px; /* Reduce left padding since we don't need space for the timeline */
         padding-right: 25px;
+        left: 0 !important; /* Override the left positioning for all events */
+        border-left: 5px solid var(--primary-color); /* Add left border to replace the timeline */
+        margin-left: 0; /* Remove any margin that might be creating space for the line */
     }
     
     .event::after {
-        left: 15px;
-    }
-    
-    .event:nth-child(even) {
-        left: 0;
+        display: none; /* Hide the timeline dots on mobile */
     }
     
     .skills-container {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
     
-    /* Remove theme switcher responsive styles */
+    /* Add styles for experiences to create a better mobile flow */
+    .timeline {
+        margin-left: 0;
+        padding-left: 0;
+    }
+}
+
+@media screen and (min-width: 951px) {
+    /* Ensure timeline is visible on larger screens */
+    .timeline::after {
+        display: block;
+    }
+    
+    .event::after {
+        display: block;
+    }
+    
+    /* Reset event styles for desktop */
+    .event:nth-child(odd) {
+        border-left: none;
+    }
+    
+    .event:nth-child(even) {
+        border-left: none;
+        border-right: 5px solid var(--primary-color);
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -1284,6 +1308,24 @@ footer .social-links a {
         height: 45px;
         right: 20px;
         bottom: 20px;
+    }
+    
+    /* Additional timeline adjustments for mobile */
+    .timeline {
+        margin-left: 20px; /* Add left margin to accommodate the line */
+    }
+    
+    .timeline::after {
+        left: 15px; /* Adjust line position to align with dots */
+    }
+    
+    .event {
+        margin: 30px 0; /* Reduce vertical spacing between events */
+        padding-left: 50px; /* Less padding on smaller screens */
+    }
+    
+    .event::before {
+        left: 10px; /* Adjust the position of the date badge */
     }
 }
 
@@ -1363,6 +1405,26 @@ footer .social-links a {
     
     .project-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Further timeline adjustments for very small screens */
+    .timeline {
+        margin-left: 10px;
+    }
+    
+    .timeline::after {
+        left: 10px;
+    }
+    
+    .event {
+        padding: 20px;
+        padding-left: 40px;
+    }
+    
+    .event::after {
+        left: 10px !important;
+        width: 15px;
+        height: 15px;
     }
 }
 
