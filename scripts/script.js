@@ -459,9 +459,24 @@ const initHeaderParallax = () => {
     
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        if (scrollY < window.innerHeight) {
-            heroContent.style.transform = `translateY(${scrollY * 0.4}px)`;
-            heroContent.style.opacity = 1 - (scrollY / (window.innerHeight * 0.6));
+        const isMobile = window.innerWidth <= 768;
+        
+        // Calculate threshold based on screen size
+        const scrollThreshold = isMobile ? window.innerHeight * 0.8 : window.innerHeight;
+        
+        if (scrollY < scrollThreshold) {
+            // Use gentler transform value on mobile
+            const translateY = isMobile ? scrollY * 0.2 : scrollY * 0.4;
+            heroContent.style.transform = `translateY(${translateY}px)`;
+            
+            // Calculate opacity with a minimum value (0.4 for mobile, 0 for desktop)
+            const minOpacity = isMobile ? 0.4 : 0;
+            const opacityValue = Math.max(
+                minOpacity,
+                1 - (scrollY / (scrollThreshold * 0.75))
+            );
+            
+            heroContent.style.opacity = opacityValue;
         }
     });
 };
