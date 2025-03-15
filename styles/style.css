@@ -2,7 +2,7 @@
  * Interactive Resume Stylesheet
  * Author: Prince Stephen Lacsa
  * Description: CSS styles for the interactive resume website
- * Version: 2.1
+ * Version: 3.0
  */
 
 /* ======================================================================
@@ -10,7 +10,7 @@
    ====================================================================== */
 
 :root {
-    /* Updated color palette with the requested colors */
+    /* Original color palette */
     --primary-color: #49111C; /* Deep burgundy/wine red */
     --primary-dark: #330A12; /* Darker shade of burgundy */
     --primary-light: #7A2D39; /* Lighter shade of burgundy */
@@ -31,6 +31,8 @@
     --border-radius-sm: 8px;
     --transition-smooth: all 0.3s ease;
 }
+
+/* Remove Dark theme variables */
 
 * {
     box-sizing: border-box;
@@ -317,6 +319,88 @@ header h1 {
     opacity: 0;
 }
 
+/* Hero content wrapper */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Typing animation container */
+.typing-container {
+    min-height: 40px;
+    margin: 15px 0;
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    font-weight: 300;
+    text-shadow: var(--text-shadow);
+}
+
+/* Cursor animation for typing effect */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--accent-color);
+    animation: blink 1s infinite;
+    margin-left: 3px;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0% { background-color: var(--accent-color); }
+    49% { background-color: var(--accent-color); }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100% { background-color: var(--accent-color); }
+}
+
+/* Mouse scroll indicator */
+.mouse-scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--light-color);
+    border-radius: 20px;
+    position: relative;
+}
+
+.mouse::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--light-color);
+    border-radius: 50%;
+    animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
 /* Social media links */
 .social-links {
     margin: 25px 0;
@@ -480,6 +564,24 @@ header h1 {
     color: var(--dark-color);
 }
 
+/* Skill progress bars */
+.skill-progress {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(10, 9, 8, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.skill-progress-bar {
+    height: 100%;
+    width: 0; /* Initial width - will be set by JS */
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+    transition: width 1.2s cubic-bezier(.08,.82,.17,1);
+}
+
 /* ======================================================================
    EXPERIENCE SECTION
    ====================================================================== */
@@ -512,11 +614,15 @@ header h1 {
     width: 45%;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--primary-color);
+    transition: all 0.4s ease;
 }
 
 .event:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02);
 }
 
 /* Position events on alternating sides */
@@ -548,6 +654,21 @@ header h1 {
 
 .event:nth-child(even)::after {
     left: -17px;
+}
+
+/* Event date badge */
+.event::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    font-weight: 600;
+    z-index: 2;
 }
 
 .event-meta {
@@ -603,11 +724,15 @@ header h1 {
     transition: var(--transition);
     position: relative;
     top: 0;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.5s cubic-bezier(.25,.8,.25,1);
 }
 
 .project-card:hover {
     transform: translateY(-15px) rotate(2deg);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
 }
 
 .project-image {
@@ -702,7 +827,24 @@ header h1 {
    ====================================================================== */
 
 #contact {
+    padding: 100px 0;
     background: linear-gradient(135deg, var(--light-color) 0%, rgba(242, 244, 243, 0.8) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background patterns */
+#contact::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--accent-color) 0%, rgba(169, 146, 125, 0) 70%);
+    opacity: 0.1;
+    z-index: 0;
+    border-radius: 50%;
 }
 
 .contact-wrapper {
@@ -927,6 +1069,45 @@ footer .social-links a {
 }
 
 /* ======================================================================
+   NEW COMPONENTS (THEME SWITCHER & BACK-TO-TOP)
+   ====================================================================== */
+
+/* Remove Theme switcher CSS */
+
+/* Back to top button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background: var(--primary-dark);
+    transform: translateY(-5px);
+}
+
+/* ======================================================================
    ANIMATIONS
    ====================================================================== */
 
@@ -969,6 +1150,31 @@ footer .social-links a {
     transform: translateY(0);
 }
 
+/* Additional animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 /* ======================================================================
    RESPONSIVE DESIGN
    ====================================================================== */
@@ -1000,6 +1206,8 @@ footer .social-links a {
     .skills-container {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
+    
+    /* Remove theme switcher responsive styles */
 }
 
 @media screen and (max-width: 768px) {
@@ -1025,15 +1233,7 @@ footer .social-links a {
         backdrop-filter: blur(10px);
     }
     
-    .nav-links li {
-        opacity: 0;
-        padding: 20px;
-    }
-    
-    .burger {
-        display: block;
-        z-index: 3;
-    }
+    /* Remove dark theme navigation styles */
     
     /* Responsive font sizes */
     header h1 {
@@ -1066,6 +1266,18 @@ footer .social-links a {
     
     .skill-icon {
         font-size: 2.5rem;
+    }
+    
+    .typing-container {
+        font-size: 1.2rem;
+        min-height: 35px;
+    }
+    
+    #back-to-top {
+        width: 45px;
+        height: 45px;
+        right: 20px;
+        bottom: 20px;
     }
 }
 
@@ -1130,6 +1342,21 @@ footer .social-links a {
     .cta-container .btn {
         width: 100%;
         max-width: 250px;
+    }
+    
+    .typing-container {
+        font-size: 1rem;
+        min-height: 30px;
+    }
+    
+    /* Remove theme switch wrapper media query styles */
+    
+    .mouse-scroll-indicator {
+        display: none;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 }
 
