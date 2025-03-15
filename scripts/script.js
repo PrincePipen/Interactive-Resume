@@ -316,6 +316,38 @@ const projectOverlayEffect = () => {
         project.addEventListener('focusout', () => {
             overlay.style.opacity = '0';
         });
+        
+        // Mobile tap handling
+        project.addEventListener('click', () => {
+            // Check if we're on mobile
+            if (window.innerWidth <= 768) {
+                const wasTapped = project.classList.contains('tapped');
+                
+                // Reset all projects first
+                document.querySelectorAll('.project-card').forEach(p => {
+                    p.classList.remove('tapped');
+                });
+                
+                if (!wasTapped) {
+                    project.classList.add('tapped');
+                    overlay.style.opacity = '1';
+                    
+                    // Update indicator text
+                    const indicator = project.querySelector('.mobile-tap-indicator span');
+                    if (indicator) {
+                        indicator.innerHTML = '<i class="fas fa-check-circle"></i> Project details shown';
+                    }
+                } else {
+                    overlay.style.opacity = '0';
+                    
+                    // Reset indicator text
+                    const indicator = project.querySelector('.mobile-tap-indicator span');
+                    if (indicator) {
+                        indicator.innerHTML = '<i class="fas fa-hand-pointer"></i> Tap to view project';
+                    }
+                }
+            }
+        });
     });
 };
 
@@ -432,6 +464,44 @@ const initHeaderParallax = () => {
             heroContent.style.opacity = 1 - (scrollY / (window.innerHeight * 0.6));
         }
     });
+};
+
+/**
+ * Handle mobile-specific project interactions
+ * Changes behavior of project cards on mobile devices
+ */
+const initMobileProjectInteractions = () => {
+    // Check if mobile on page load
+    const checkMobile = () => {
+        const isMobile = window.innerWidth <= 768;
+        const projects = document.querySelectorAll('.project-card');
+        
+        projects.forEach(project => {
+            const overlay = project.querySelector('.project-overlay');
+            if (!overlay) return;
+            
+            if (isMobile) {
+                // Set initial opacity to 0 on mobile
+                overlay.style.opacity = '0';
+                project.classList.add('mobile-mode');
+            } else {
+                // Remove any mobile-specific classes
+                project.classList.remove('mobile-mode', 'tapped');
+                
+                // Reset indicator text if we switch from mobile to desktop
+                const indicator = project.querySelector('.mobile-tap-indicator span');
+                if (indicator) {
+                    indicator.innerHTML = '<i class="fas fa-hand-pointer"></i> Tap to view project';
+                }
+            }
+        });
+    };
+    
+    // Check on resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Initial check
+    checkMobile();
 };
 
 // ==========================================================================
@@ -579,6 +649,7 @@ function init() {
     initBackToTop();
     initScrollIndicator();
     initHeaderParallax();
+    initMobileProjectInteractions(); // Add the new function
     
     console.log('Interactive Resume initialized');
 }
