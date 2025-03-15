@@ -107,24 +107,26 @@ const stickyNav = () => {
 // ==========================================================================
 
 /**
- * Animates skill bars when they come into view
- * Progressively fills the skill level bars when they are visible on screen
+ * Animates skill cards when they come into view
+ * Applies animation effects to skill cards when they are visible on screen
  */
-const animateSkillBars = () => {
-    const skillBars = document.querySelectorAll('.skill-level');
+const animateSkillCards = () => {
+    const skillCards = document.querySelectorAll('.skill-card');
     
-    const animateBar = (bar) => {
-        const targetWidth = bar.getAttribute('data-level');
-        bar.style.width = targetWidth;
+    const animateCard = (card) => {
+        card.classList.add('animate');
     };
     
     const checkPosition = () => {
-        skillBars.forEach(bar => {
-            const position = bar.getBoundingClientRect().top;
+        skillCards.forEach((card, index) => {
+            const position = card.getBoundingClientRect().top;
             const screenHeight = window.innerHeight;
             
             if (position < screenHeight * 0.9) {
-                animateBar(bar);
+                // Add a staggered delay based on index
+                setTimeout(() => {
+                    animateCard(card);
+                }, index * 100);
             }
         });
     };
@@ -248,6 +250,71 @@ const projectHoverEffects = () => {
         project.addEventListener('focusout', function() {
             this.style.transform = '';
             this.style.boxShadow = '';
+        });
+    });
+};
+
+/**
+ * Enhanced hover effects for skill cards
+ * Adds interactive animations when hovering over skill cards
+ */
+const skillCardEffects = () => {
+    const skillCards = document.querySelectorAll('.skill-card');
+    
+    skillCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('.skill-icon i');
+            icon.style.transform = 'scale(1.2) rotate(5deg)';
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('.skill-icon i');
+            icon.style.transform = '';
+            this.style.transform = '';
+        });
+        
+        // Add focus effects for keyboard navigation
+        card.addEventListener('focusin', function() {
+            const icon = this.querySelector('.skill-icon i');
+            icon.style.transform = 'scale(1.2) rotate(5deg)';
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('focusout', function() {
+            const icon = this.querySelector('.skill-icon i');
+            icon.style.transform = '';
+            this.style.transform = '';
+        });
+    });
+};
+
+/**
+ * Add project overlay effect
+ * Shows overlay with links when hovering over project cards
+ */
+const projectOverlayEffect = () => {
+    const projects = document.querySelectorAll('.project-card');
+    
+    projects.forEach(project => {
+        const overlay = project.querySelector('.project-overlay');
+        if (!overlay) return;
+        
+        project.addEventListener('mouseenter', () => {
+            overlay.style.opacity = '1';
+        });
+        
+        project.addEventListener('mouseleave', () => {
+            overlay.style.opacity = '0';
+        });
+        
+        // Keyboard accessibility
+        project.addEventListener('focusin', () => {
+            overlay.style.opacity = '1';
+        });
+        
+        project.addEventListener('focusout', () => {
+            overlay.style.opacity = '0';
         });
     });
 };
@@ -381,13 +448,16 @@ function isValidEmail(email) {
 function init() {
     navSlide();
     smoothScroll();
-    animateSkillBars();
+    // Replace animateSkillBars with animateSkillCards
+    animateSkillCards();
     fadeInElements();
     validateForm();
     stickyNav();
     parallaxEffect();
     animateNumbers();
     projectHoverEffects();
+    skillCardEffects(); // Add this new function
+    projectOverlayEffect(); // Add this new function
     console.log('Interactive Resume initialized');
 }
 
