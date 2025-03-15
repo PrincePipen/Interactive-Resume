@@ -6,7 +6,7 @@
     <title>Interactive Resume</title>
     <!-- Stylesheet links -->
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- SEO meta tag -->
     <meta name="description" content="Prince Stephen Lacsa - Web Developer, UI/UX Designer and Artist. Interactive resume showcasing skills, projects and experience.">
@@ -42,7 +42,10 @@
                 <a href="https://github.com/PrincePipen" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
                 <a href="https://x.com/H1ro_desu" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
             </div>
-            <a href="#about" class="btn">Discover More</a>
+            <div class="cta-container">
+                <a href="#about" class="btn primary-btn">Discover More</a>
+                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+            </div>
         </div>
     </header>
     
@@ -55,8 +58,8 @@
                 <p>With a strong foundation in HTML, CSS, JavaScript, and frameworks like React, I bring designs to life with clean, efficient, and interactive code. My expertise in UI/UX design allows me to create seamless, accessible, and engaging digital experiences.</p>
                 <p>I'm always eager to learn new design trends and technologies to continuously improve my craft and deliver high-quality web solutions.</p>
                 <div class="about-cta">
-                    <a href="#contact" class="btn">Get In Touch</a>
-                    <a href="#projects" class="btn" style="background: var(--secondary-color)">View My Work</a>
+                    <a href="#contact" class="btn primary-btn">Get In Touch</a>
+                    <a href="#projects" class="btn secondary-btn">View My Work</a>
                 </div>
             </div>
         </div>
@@ -66,30 +69,60 @@
     <section id="skills">
         <div class="container">
             <h2 class="section-title">Skills</h2>
-            <div class="skill-bar">
-                <div class="skill-name">HTML</div>
-                <div class="skill-level" data-level="90%">90%</div>
-            </div>
-            <!-- More skill bars -->
-            <div class="skill-bar">
-                <div class="skill-name">CSS</div>
-                <div class="skill-level" data-level="90%">90%</div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-name">JavaScript</div>
-                <div class="skill-level" data-level="85%">85%</div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-name">React</div>
-                <div class="skill-level" data-level="80%">80%</div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-name">Node.js</div>
-                <div class="skill-level" data-level="75%">75%</div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-name">PHP</div>
-                <div class="skill-level" data-level="85%">85%</div>
+            <div class="skill-categories">
+                <div class="skill-category">
+                    <h3>Front-End Development</h3>
+                    <div class="skills-container">
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                            <div class="skill-name">HTML5</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                            <div class="skill-name">CSS3</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-js"></i></div>
+                            <div class="skill-name">JavaScript</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-react"></i></div>
+                            <div class="skill-name">React</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Back-End Development</h3>
+                    <div class="skills-container">
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                            <div class="skill-name">Node.js</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-php"></i></div>
+                            <div class="skill-name">PHP</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
+                            <div class="skill-name">MySQL</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Design & Tools</h3>
+                    <div class="skills-container">
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-figma"></i></div>
+                            <div class="skill-name">Figma</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                            <div class="skill-name">Git</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -128,37 +161,41 @@
                 <div class="project-card">
                     <div class="project-image">
                         <img src="assets/images/proj1.jpg" alt="AI Chatbot Project screenshot">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://graceful-brigadeiros-f47674.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn outline-btn">View Demo</a>
+                                <a href="https://github.com/PrincePipen/AI-Chatbot-Project" target="_blank" rel="noopener noreferrer" class="btn outline-btn">Source Code</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-info">
                         <h3>AI Chatbot Project</h3>
-                        <p>A web-based interactive AI chatbot designed to simulate a conversation with an AI companion aboard a spaceship. The project utilizes HTML, CSS, and JavaScript, integrating the Google Generative AI API to provide intelligent and context-aware responses. The user interface features a space-themed environment with animations and an interactive menu</p>
+                        <p>A web-based interactive AI chatbot designed to simulate a conversation with an AI companion aboard a spaceship. The project utilizes HTML, CSS, and JavaScript, integrating the Google Generative AI API to provide intelligent and context-aware responses.</p>
                         <div class="project-tags">
                             <span>HTML</span>
                             <span>CSS</span>
                             <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://graceful-brigadeiros-f47674.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-small">Live Demo</a>
-                            <a href="https://github.com/PrincePipen/AI-Chatbot-Project" target="_blank" rel="noopener noreferrer" class="btn-small">Source Code</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
                         <img src="assets/images/proj2.jpg" alt="DnD Project screenshot">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" aria-label="Live demo not available yet" class="btn outline-btn">Coming Soon</a>
+                                <a href="https://github.com/PrincePipen/DnD-Project-.-in-progress" target="_blank" rel="noopener noreferrer" class="btn outline-btn">Source Code</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-info">
                         <h3>DnD Project (in-progress)</h3>
-                        <p>An immersive web-based Dungeons & Dragons experience powered by AI. This application combines the classic tabletop RPG experience with modern AI technology to create dynamic, personalized adventures</p>
+                        <p>An immersive web-based Dungeons & Dragons experience powered by AI. This application combines the classic tabletop RPG experience with modern AI technology to create dynamic, personalized adventures.</p>
                         <div class="project-tags">
                             <span>TypeScript</span>
                             <span>JavaScript</span>
                             <span>Tailwind CSS</span>
                             <span>HTML5</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" aria-label="Live demo not available yet" class="btn-small">Live Demo (no live demo yet)</a>
-                            <a href="https://github.com/PrincePipen/DnD-Project-.-in-progress" target="_blank" rel="noopener noreferrer" class="btn-small">Source Code</a>
                         </div>
                     </div>
                 </div>
@@ -198,7 +235,7 @@
                         <textarea id="message" placeholder="Your Message" required></textarea>
                         <span class="error-message"></span>
                     </div>
-                    <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" class="btn primary-btn">Send Message</button>
                 </form>
             </div>
         </div>
