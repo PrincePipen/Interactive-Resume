@@ -1,8 +1,8 @@
 /**
  * Interactive Resume JavaScript
  * Author: Prince Stephen Lacsa
- * Description: This file contains all the JavaScript functionality for the interactive resume.
- * It handles mobile navigation, animations, form validation, and other interactive elements.
+ * Description: Professional JavaScript functionality for interactive resume
+ * Version: 3.0
  */
 
 // ==========================================================================
@@ -520,153 +520,38 @@ const initMobileProjectInteractions = () => {
 };
 
 // ==========================================================================
-// FORM VALIDATION
-// ==========================================================================
-
-/**
- * Validates the contact form
- * Checks for required fields and valid email format before submission
- */
-const validateForm = () => {
-    const form = document.getElementById('contact-form');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            let isValid = true;
-            
-            // Get form elements
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
-            
-            // Clear previous error messages
-            document.querySelectorAll('.error-message').forEach(msg => {
-                msg.textContent = '';
-            });
-            
-            // Validate name
-            if (name.value.trim() === '') {
-                displayError(name, 'Name is required');
-                isValid = false;
-            }
-            
-            // Validate email
-            if (email.value.trim() === '') {
-                displayError(email, 'Email is required');
-                isValid = false;
-            } else if (!isValidEmail(email.value)) {
-                displayError(email, 'Please enter a valid email');
-                isValid = false;
-            }
-            
-            // Validate message
-            if (message.value.trim() === '') {
-                displayError(message, 'Message is required');
-                isValid = false;
-            }
-            
-            // If form is valid, submit it
-            if (isValid) {
-                // Here you would normally send the form data to a server
-                // For now, just show a success message
-                form.innerHTML = '<div class="success-message" role="alert"><h3>Thank you!</h3><p>Your message has been sent successfully.</p></div>';
-            }
-        });
-        
-        // Real-time validation on input
-        form.querySelectorAll('input, textarea').forEach(field => {
-            field.addEventListener('input', function() {
-                if (this.classList.contains('error')) {
-                    validateField(this);
-                }
-            });
-            
-            field.addEventListener('blur', function() {
-                validateField(this);
-            });
-        });
-    }
-};
-
-/**
- * Validates an individual form field
- * @param {HTMLElement} field - The form field to validate
- */
-function validateField(field) {
-    // Clear previous errors
-    const errorMessage = field.parentElement.querySelector('.error-message');
-    errorMessage.textContent = '';
-    field.classList.remove('error');
-    
-    if (field.id === 'name' && field.value.trim() === '') {
-        displayError(field, 'Name is required');
-    } else if (field.id === 'email') {
-        if (field.value.trim() === '') {
-            displayError(field, 'Email is required');
-        } else if (!isValidEmail(field.value)) {
-            displayError(field, 'Please enter a valid email');
-        }
-    } else if (field.id === 'message' && field.value.trim() === '') {
-        displayError(field, 'Message is required');
-    }
-}
-
-/**
- * Displays an error message for a form field
- * @param {HTMLElement} input - The input field with an error
- * @param {string} message - The error message to display
- */
-function displayError(input, message) {
-    const formGroup = input.parentElement;
-    const errorMessage = formGroup.querySelector('.error-message');
-    errorMessage.textContent = message;
-    input.classList.add('error');
-    
-    // Add ARIA attributes for accessibility
-    input.setAttribute('aria-invalid', 'true');
-    errorMessage.setAttribute('role', 'alert');
-}
-
-/**
- * Checks if an email address is valid
- * @param {string} email - The email address to validate
- * @returns {boolean} - Whether the email is valid
- */
-function isValidEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-
-// ==========================================================================
 // INITIALIZATION
 // ==========================================================================
 
 /**
  * Initialize all functions when the DOM is fully loaded
+ * Group functionality by purpose for better organization
  */
 function init() {
-    // Existing functions
+    // Navigation
     navSlide();
     smoothScroll();
-    animateSkillCards();
-    fadeInElements();
-    validateForm();
     stickyNav();
+    
+    // Animations
     parallaxEffect();
-    animateNumbers();
+    fadeInElements();
+    animateSkillCards();
     projectHoverEffects();
     skillCardEffects();
     projectOverlayEffect();
-    
-    // New functions
+    animateNumbers();
     initSkillProgressBars();
+    
+    // UI Components
     initBackToTop();
     initScrollIndicator();
     initHeaderParallax();
-    initMobileProjectInteractions(); // Add the new function
     
-    console.log('Interactive Resume initialized');
+    // Mobile optimizations
+    initMobileProjectInteractions();
+    
+    console.log('Interactive Resume initialized successfully');
 }
 
 // Run when DOM is fully loaded
